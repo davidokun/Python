@@ -79,4 +79,33 @@ print(x.lower())
 print(x.split())
 print(x.split("o"))
 
+######################
+# Formatting Strings #
+######################
 
+# .format()
+
+print("This is a string {}".format("INSERTED"))
+
+# Insert in order
+print("The {} {} {}".format("fox", "brown", "quick"))
+
+# By Index
+print("The {2} {0} {1}".format("fox", "brown", "quick"))
+
+# Using Keywords
+print("The {q} {b} {f}".format(f="fox", b="brown", q="quick"))
+
+# Float formatting
+result = 100/777
+
+print("The result was {r:1.3f}".format(r=result))
+
+# Formatted string literals
+
+name = "Jose"
+print(f"Hello, his name is {name}")
+
+name = "Sam"
+age = 25
+print(f"{name} is {age} years old")
