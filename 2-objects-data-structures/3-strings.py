@@ -17,7 +17,9 @@ print("Hello \tworld")
 # Length of a String
 print(len("I am Iron Man"))
 
-# INDEXING
+############
+# INDEXING #
+############
 myString = "Hello World"
 print(myString[0])
 print(myString[8])
@@ -26,7 +28,9 @@ print(myString[8])
 print(myString[-1])
 print(myString[-5])
 
-# SLICING
+###########
+# SLICING #
+###########
 myString = "abcdefghijk"
 print(myString)
 
@@ -46,4 +50,33 @@ print(myString[2:7:2])
 
 # Reversing a string with step
 print(myString[::-1])
+
+#################################
+# String Properties and Methods #
+#################################
+
+# Immutability
+name = "John Doe"
+print(name)
+# name[0] = "p" # Throw Error
+
+name = "Sam"
+print(name)
+print('P' + name[1:])
+
+# More concatenation
+x = "Hello World"
+print(x + " it is good outside")
+
+# Multiplication of letters
+letter = "z"
+print(letter * 15)
+
+# Methods
+x = "Hello World"
+print(x.upper())
+print(x.lower())
+print(x.split())
+print(x.split("o"))
+
 
