@@ -45,3 +45,25 @@ def add_numbers(num1: int, num2: int):
 
 print(add_numbers(5, 12))
 print(add_numbers(3, 2))
+
+
+# 6.
+def is_even(num: int):
+    return num % 2 == 0
+
+
+print(is_even(2))
+print(is_even(3))
+print(is_even(25))
+print(is_even(30))
+
+print('## 7.')
+
+
+def is_greater(n1: int, n2: int):
+    return n1 > n2
+
+
+print(is_greater(1, 3))
+print(is_greater(5, 2))
+print(is_greater(5, 5))
