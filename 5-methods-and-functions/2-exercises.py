@@ -67,3 +67,45 @@ def is_greater(n1: int, n2: int):
 print(is_greater(1, 3))
 print(is_greater(5, 2))
 print(is_greater(5, 5))
+
+
+print('## 8.')
+
+
+def sum_args(*args):
+    return sum(args)
+
+
+print(sum_args(3, 5, 2, 6))
+
+
+print('## 9.')
+
+
+def check_even(*args):
+    return [n for n in args if n % 2 == 0]
+
+
+print(check_even(1, 2, 3, 4, 5, 6))
+
+
+print('## 10.')
+
+
+def skyline(word):
+    result = ''
+    index = 1
+    for s in word:
+        if index % 2 == 0:
+            result += s.upper()
+        else:
+            result += s.lower()
+
+        index += 1
+
+    return result
+
+
+print(skyline('Anthropomorphism'))
+
+
