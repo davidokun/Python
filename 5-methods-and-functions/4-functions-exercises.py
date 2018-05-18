@@ -71,3 +71,19 @@ print(old_macdonald('metallica'))
 print(old_macdonald('darkside'))
 print(old_macdonald('time'))
 print(old_macdonald('runaway'))
+
+
+# MASTER YODA:
+# Given a sentence, return a sentence with the words reversed
+print('## MASTER YODA: ')
+
+
+def master_yoda(text):
+    list_text = text.split()
+    print(" ".join(list_text[::-1]))
+
+
+master_yoda('I am home')
+master_yoda('We are ready')
+master_yoda('Powerful you have become')
+
