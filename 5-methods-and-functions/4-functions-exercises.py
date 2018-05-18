@@ -87,3 +87,18 @@ master_yoda('I am home')
 master_yoda('We are ready')
 master_yoda('Powerful you have become')
 
+
+# ALMOST THERE:
+# Given an integer n, return True if n is within 10 of either 100 or 200
+print('## ALMOST THERE:')
+
+
+def almost_there(n):
+    return (90 <= n <= 110) or (190 <= n <= 210)
+
+
+print(almost_there(90))
+print(almost_there(104))
+print(almost_there(150))
+print(almost_there(209))
+
