@@ -52,3 +52,22 @@ print(makes_twenty(12, 8))
 print(makes_twenty(2, 3))
 print(makes_twenty(30, 2))
 print(makes_twenty(30, 20))
+
+
+# OLD MACDONALD:
+# Write a function that capitalizes the first and fourth letters of a name
+print('## OLD MACDONALD: ')
+
+
+def old_macdonald(name):
+    return name[0].upper() + \
+           name[1:3] + \
+           name[3].upper() + \
+           name[4:]
+
+
+print(old_macdonald('macdonald'))
+print(old_macdonald('metallica'))
+print(old_macdonald('darkside'))
+print(old_macdonald('time'))
+print(old_macdonald('runaway'))
