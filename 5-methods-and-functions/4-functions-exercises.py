@@ -172,3 +172,24 @@ print(blackjack(3, 2, 9))
 print(blackjack(10, 5, 6))
 print(blackjack(10, 5, 7))
 print(blackjack(11, 5, 7))
+
+
+# SUMMER OF '69:
+# Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and
+# extending to the next 9 (every 6 will be followed by at least one 9). Return 0 for no numbers.
+print('## SUMMER OF 69:')
+
+
+def summer_69(numbers):
+    total = 0
+    for n in numbers:
+        if n < 6 or n > 9:
+            total += n
+
+    return total
+
+
+print(summer_69([1, 3, 5]))
+print(summer_69([4, 5, 6, 7, 8, 9]))
+print(summer_69([2, 1, 6, 9, 11]))
+print(summer_69([5, 4, 3, 2, 1, 6, 8, 7, 9, 10, 11, 12]))
