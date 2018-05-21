@@ -123,3 +123,21 @@ print(has_33([1, 3, 3]))
 print(has_33([1, 3, 1, 3]))
 print(has_33([3, 1, 3]))
 print(has_33([3, 3, 1]))
+
+
+# PAPER DOLL:
+# Given a string, return a string where for every character in the original there are three characters
+print('## PAPER DOLL: ')
+
+
+def paper_doll(text):
+    res = ''
+    for letter in text:
+        res += letter * 3
+
+    return res
+
+
+print(paper_doll('Hello'))
+print(paper_doll('Mississippi'))
+print(paper_doll('World'))
