@@ -221,3 +221,28 @@ print(spy_game([1, 7, 2, 0, 4, 5, 0]))  # False
 print(spy_game([1, 0, 2, 7, 4, 5, 0]))  # False
 print(spy_game([0, 7]))  # False
 print(spy_game([7, 7, 7]))  # False
+
+
+# COUNT PRIMES:
+# Write a function that returns the number of prime numbers that exist up to and including a given number
+print("## COUNT PRIMES")
+
+
+def count_primes(num):
+    primes = 0
+
+    for n in range(2, num):
+        is_prime = True
+        for x in range(2, n):
+            if n % x == 0:
+                is_prime = False
+
+        if is_prime:
+            primes += 1
+
+    return primes
+
+
+print(count_primes(100))
+print(count_primes(500))
+print(count_primes(10))
