@@ -246,3 +246,29 @@ def count_primes(num):
 print(count_primes(100))
 print(count_primes(500))
 print(count_primes(10))
+
+
+# PRINT BIG:
+# Write a function that takes in a single letter, and returns a 5x5 representation of that letter
+print('## PRINT BIG')
+
+
+def print_big(letter):
+    my_dic = {'a': '  *  \n * * \n*****\n*   *\n*   *\n',
+          'b': '****\n*   *\n*****\n*   *\n****\n',
+          'c': ' ****\n*    \n*    \n*    \n ****\n',
+          'd': '****\n*   *\n*   *\n*   *\n****\n',
+          'e': '*****\n*    \n*****\n*    \n*****\n',
+          'f': '*****\n*    \n*****\n*    \n*    \n'}
+
+    print(my_dic[letter])
+
+
+print_big('a')
+print_big('d')
+print_big('e')
+print_big('f')
+print_big('e')
+print_big('c')
+print_big('a')
+
