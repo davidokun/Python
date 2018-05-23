@@ -193,3 +193,31 @@ print(summer_69([1, 3, 5]))
 print(summer_69([4, 5, 6, 7, 8, 9]))
 print(summer_69([2, 1, 6, 9, 11]))
 print(summer_69([5, 4, 3, 2, 1, 6, 8, 7, 9, 10, 11, 12]))
+
+
+# SPY GAME:
+# Write a function that takes in a list of integers and returns True if it contains 007 in order
+print("## SPY GAME")
+
+
+def spy_game(nums):
+    zeros = 0
+    for n in nums:
+        if n == 0:
+            zeros += 1
+            if zeros <= 2:
+                continue
+            else:
+                zeros -= 1
+        elif n == 7:
+            return zeros == 2
+
+
+print(spy_game([1, 2, 4, 0, 0, 7, 5]))  # True
+print(spy_game([1, 2, 4, 0, 0, 0, 7, 5]))  # True
+print(spy_game([1, 2, 4, 0, 0, 0, 7, 7, 5]))  # True
+print(spy_game([1, 0, 2, 4, 0, 5, 7]))  # True
+print(spy_game([1, 7, 2, 0, 4, 5, 0]))  # False
+print(spy_game([1, 0, 2, 7, 4, 5, 0]))  # False
+print(spy_game([0, 7]))  # False
+print(spy_game([7, 7, 7]))  # False
