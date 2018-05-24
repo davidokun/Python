@@ -6,15 +6,9 @@ print('## LESSER OF TWO EVENS: ')
 
 def lesser_of_two_evens(a, b):
     if a % 2 == 0 and b % 2 == 0:
-        if a < b:
-            return a
-        else:
-            return b
+        return min(a, b)
     else:
-        if a > b:
-            return a
-        else:
-            return b
+        return max(a, b)
 
 
 print(lesser_of_two_evens(2, 4))
@@ -26,7 +20,7 @@ print('## ANIMAL CRACKERS:')
 
 
 def animal_crackers(animal):
-    words = animal.split()
+    words = animal.lower().split()
     return words[0][0] == words[1][0]
 
 
@@ -41,10 +35,7 @@ print('## MAKES TWENTY: ')
 
 
 def makes_twenty(n1, n2):
-    if n1 == 20 or n2 == 20:
-        return True
-    else:
-        return n1 + n2 == 20
+    return n1 == 20 or n2 == 20 or (n1 + n2) == 20
 
 
 print(makes_twenty(20, 10))
@@ -109,14 +100,10 @@ print('## FIND 33:')
 
 
 def has_33(nums):
-    before = 0
-    found = False
-    for n in nums:
-        if before == n:
-            found = True
-        before = n
-
-    return found
+    for i in range(0, len(nums) - 1):
+        if nums[i] == 3 and nums[i+1] == 3:
+            return True
+    return False
 
 
 print(has_33([1, 3, 3]))
@@ -151,16 +138,13 @@ print('## BLACKJACK: ')
 
 
 def blackjack(a, b, c):
-    eleven = a == 11 or b == 11 or c == 11
-    sum_result = a + b + c
+    sum_result = sum([a, b, c])
 
     if sum_result <= 21:
         return sum_result
 
-    adjustment = sum_result - 10
-
-    if sum_result > 21 and eleven:
-        return adjustment
+    if sum_result > 21 and 11 in [a, b, c]:
+        return sum_result - 10
 
     return 'BUST'
 
@@ -201,16 +185,22 @@ print("## SPY GAME")
 
 
 def spy_game(nums):
-    zeros = 0
-    for n in nums:
-        if n == 0:
-            zeros += 1
-            if zeros <= 2:
-                continue
-            else:
-                zeros -= 1
-        elif n == 7:
-            return zeros == 2
+    code = [0, 0, 7, 'x']
+    for num in nums:
+        if num == code[0]:
+            code.pop(0)
+
+    return len(code) == 1
+    # zeros = 0
+    # for n in nums:
+    #     if n == 0:
+    #         zeros += 1
+    #         if zeros <= 2:
+    #             continue
+    #         else:
+    #             zeros -= 1
+    #     elif n == 7:
+    #         return zeros == 2
 
 
 print(spy_game([1, 2, 4, 0, 0, 7, 5]))  # True
@@ -246,6 +236,7 @@ def count_primes(num):
 print(count_primes(100))
 print(count_primes(500))
 print(count_primes(10))
+print(count_primes(2))
 
 
 # PRINT BIG:
