@@ -1,3 +1,5 @@
+import string
+
 # Write a function that computes the volume of a sphere given its radius.
 print("# VOLUME OF A SPHERE\n")
 
@@ -97,3 +99,24 @@ print(palindrome('nurses run'))
 print(palindrome('Sometamos o matemos'))
 print(palindrome('Yo dono rosas oro no doy'))
 print(palindrome('Do or do not there is no try'))
+
+
+# Write a Python function to check whether a string is pangram or not.
+print("\n# CHECK WHETHER A STRING IS PANGRAM OR NOT\n")
+
+
+def ispangram(str1, alphabet=string.ascii_lowercase):
+    lower_sentence = str1.lower().replace(' ', '')
+    for n in alphabet:
+        if n in lower_sentence:
+            continue
+        else:
+            return False
+
+    return True
+
+
+print(ispangram("The quick brown fox jumps over the lazy dog"))  # True
+print(ispangram("Pack my box with five dozen liquor jugs"))  # True
+print(ispangram("How quickly daft jumping zebras vex"))  # True
+print(ispangram("Hate leads to the Dark Side of the Force"))  # False
