@@ -63,3 +63,20 @@ def unique_list(my_lst):
 print(unique_list([1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 5]))
 print(unique_list([1, 2, 3, 3, 4, 5, 6, 6, 6, 7, 8, 8, 9, 0, 0]))
 
+
+# Write a Python function to multiply all the numbers in a list.
+print("\n# MULTIPLY ALL THE NUMBERS IN A LIST\n")
+
+
+def multiply(numbers):
+    result = 1
+    for n in numbers:
+        result *= n
+
+    return result
+
+
+print(multiply([1, 2, 3, -4]))
+print(multiply([4, 0, 5, 10, 2]))
+print(multiply([4, 3, 5, 10, 2]))
+
