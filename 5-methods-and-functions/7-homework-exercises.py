@@ -80,3 +80,20 @@ print(multiply([1, 2, 3, -4]))
 print(multiply([4, 0, 5, 10, 2]))
 print(multiply([4, 3, 5, 10, 2]))
 
+
+# Write a Python function that checks whether a passed in string is palindrome or not.
+print("\n# CHECKS WHETHER A PASSED IN STRING IS PALINDROME OR NOT\n")
+
+
+def palindrome(word):
+    lower_word = word.lower().replace(' ', '')
+    return lower_word == lower_word[::-1]
+
+
+print(palindrome('helleh'))
+print(palindrome('madam'))
+print(palindrome('May the force be with you'))
+print(palindrome('nurses run'))
+print(palindrome('Sometamos o matemos'))
+print(palindrome('Yo dono rosas oro no doy'))
+print(palindrome('Do or do not there is no try'))
