@@ -26,3 +26,14 @@ def select_position():
         position = int(input("Please pick a position [1-9]: "))
 
     return position
+
+
+def place_marker(board, marker, position):
+    board[position - 1] = marker
+    pass
+
+
+selected_marker = select_marker()
+selected_position = select_position()
+place_marker(test_board, selected_marker, selected_position)
+display_board(test_board)
