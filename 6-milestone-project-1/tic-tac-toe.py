@@ -6,12 +6,13 @@ def display_board(board):
     print(' ' + board[0] + ' | ' + board[1] + ' | ' + board[2])
 
 
-test_board = ['X1', 'O2', 'X3', 'O4', 'X5', 'O6', 'X7', 'O8', 'X9']
+test_board = ['--', '--', '--', '--', '--', '--', '--', '--', '--']
 
 display_board(test_board)
+print('################')
 
 
-def player_input():
+def select_marker():
     value = ''
     while value != 'X' and value != 'O':
         value = input("Please pick a marker 'X' or 'O' : ")
@@ -19,4 +20,9 @@ def player_input():
     return value
 
 
-print(player_input())
+def select_position():
+    position = 0
+    while position < 1 or position > 9:
+        position = int(input("Please pick a position [1-9]: "))
+
+    return position
