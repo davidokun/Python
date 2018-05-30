@@ -55,6 +55,10 @@ def choose_first():
         return 'Player 1'
 
 
+def space_check(board, position):
+    return board[position] == '  '
+
+
 selected_marker = select_marker()
 selected_position = select_position()
 place_marker(test_board, selected_marker, selected_position)
