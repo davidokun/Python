@@ -1,7 +1,14 @@
 import random
 
+test_board = ['#', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+
 
 def display_board(board):
+    """
+    Function that can print out a board.
+    :param board:
+    :return:
+    """
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
     print('----|----|----')
     print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
@@ -9,35 +16,42 @@ def display_board(board):
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
 
 
-test_board = ['#', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+def player_input():
+    """
+    Function that can take in a player input and assign their marker as 'X' or 'O'
+    :return:
+    """
+    marker = ''
 
+    while not (marker == 'X' or marker == 'O'):
+        marker = input('Player 1: Do you want to be X or O? ').upper()
 
-display_board(test_board)
-print('################')
-
-
-def select_marker():
-    value = ''
-    while value != 'X' and value != 'O':
-        value = input("Please pick a marker 'X' or 'O' : ")
-
-    return value
-
-
-def select_position():
-    position = 0
-    while position < 1 or position > 9:
-        position = int(input("Please pick a position [1-9]: "))
-
-    return position
+    if marker == 'X':
+        return 'X', 'O'
+    else:
+        return 'O', 'X'
 
 
 def place_marker(board, marker, position):
+    """
+    Takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9)
+    and assigns it to the board.
+    :param board:
+    :param marker:
+    :param position:
+    :return:
+    """
     board[position] = marker
     pass
 
 
 def win_check(board, mark):
+    """
+    function that takes in a board and checks to see if someone has won.
+    :param board:
+    :param mark:
+    :return:
+    """
     return ((board[7] == mark and board[8] == mark and board[9] == mark) or
             (board[4] == mark and board[5] == mark and board[6] == mark) or
             (board[1] == mark and board[2] == mark and board[3] == mark) or
@@ -81,8 +95,15 @@ def full_board_check(board):
     return True
 
 
-selected_marker = select_marker()
-selected_position = select_position()
-place_marker(test_board, selected_marker, selected_position)
-display_board(test_board)
-print(win_check(test_board, selected_marker))
+def player_choice(board):
+    """
+    Asks for a player's next position (as a number 1-9)
+    :param board:
+    :return:
+    """
+    position = 0
+
+    while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] or not space_check(board, position):
+        position = int(input('Choose your next position: (1-9) '))
+
+    return position
