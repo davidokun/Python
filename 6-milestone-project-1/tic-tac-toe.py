@@ -49,6 +49,10 @@ def win_check(board, mark):
 
 
 def choose_first():
+    """
+    Randomly decide which player goes first
+    :return:
+    """
     if random.randint(0, 1) == 0:
         return 'Player 2'
     else:
@@ -56,7 +60,25 @@ def choose_first():
 
 
 def space_check(board, position):
+    """
+    Returns a boolean indicating whether a space on the board is freely available.
+    :param board:
+    :param position:
+    :return:
+    """
     return board[position] == '  '
+
+
+def full_board_check(board):
+    """
+    Checks if the board is full and returns a boolean value. True if full, False otherwise.
+    :param board:
+    :return:
+    """
+    for i in range(1,10):
+        if space_check(board, i):
+            return False
+    return True
 
 
 selected_marker = select_marker()
