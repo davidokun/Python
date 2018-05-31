@@ -1,6 +1,6 @@
 import random
 
-test_board = ['#', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+test_board = ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 
 def display_board(board):
@@ -10,16 +10,16 @@ def display_board(board):
     :return:
     """
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
-    print('----|----|----')
+    print('---|---|---')
     print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
-    print('----|----|----')
+    print('---|---|---')
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
 
 
 def player_input():
     """
     Function that can take in a player input and assign their marker as 'X' or 'O'
-    :return:
+    :return: X, O pair
     """
     marker = ''
 
@@ -27,8 +27,10 @@ def player_input():
         marker = input('Player 1: Do you want to be X or O? ').upper()
 
     if marker == 'X':
+        print('=> Player 1 is X and Player 2 is O')
         return 'X', 'O'
     else:
+        print('=> Player 1 is O and Player 2 is X')
         return 'O', 'X'
 
 
@@ -36,9 +38,9 @@ def place_marker(board, marker, position):
     """
     Takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9)
     and assigns it to the board.
-    :param board:
-    :param marker:
-    :param position:
+    :param board: the board to place the marker
+    :param marker: the selected marker
+    :param position: the position of the marker
     :return:
     """
     board[position] = marker
@@ -48,9 +50,9 @@ def place_marker(board, marker, position):
 def win_check(board, mark):
     """
     function that takes in a board and checks to see if someone has won.
-    :param board:
-    :param mark:
-    :return:
+    :param board: the board to check
+    :param mark: the last mark in placed in the board
+    :return: True if game is win or False otherwise
     """
     return ((board[7] == mark and board[8] == mark and board[9] == mark) or
             (board[4] == mark and board[5] == mark and board[6] == mark) or
@@ -65,7 +67,7 @@ def win_check(board, mark):
 def choose_first():
     """
     Randomly decide which player goes first
-    :return:
+    :return: String to define player 1 and player 2
     """
     if random.randint(0, 1) == 0:
         return 'Player 2'
@@ -115,3 +117,38 @@ def replay():
     :return:
     """
     return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
+
+
+# Game logic
+print('###############################')
+print('#   Welcome to Tic Tac Toe!   #')
+print('###############################\n')
+
+display_board(test_board)
+
+while True:
+    player_markers = player_input()
+    choose_first()
+    game_on = True
+    turn = 0
+
+    while game_on:
+        pos = player_choice(test_board)
+        place_marker(test_board, player_markers[turn], pos)
+        display_board(test_board)
+
+        if win_check(test_board, player_markers[turn]):
+            if turn == 0:
+                print("Player 1 Won!!!")
+            else:
+                print("Player 2 Won!!!")
+
+            game_on = False
+
+        if turn == 0:
+            turn = 1
+        else:
+            turn = 0
+
+    print('Game finish')
+    break
