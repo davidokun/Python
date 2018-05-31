@@ -107,3 +107,11 @@ def player_choice(board):
         position = int(input('Choose your next position: (1-9) '))
 
     return position
+
+
+def replay():
+    """
+    Function that asks the player if they want to play again and returns a boolean True if they do want to play again.
+    :return:
+    """
+    return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
