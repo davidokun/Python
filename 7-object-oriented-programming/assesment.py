@@ -23,3 +23,24 @@ line = Line(coordinate1, coordinate2)
 
 print("Distance between {} and {} is {}".format(coordinate1, coordinate2, line.distance()))
 print("Slope between {} and {} is {}".format(coordinate1, coordinate2, line.slope()))
+
+print("# CLASS CYLINDER\n")
+
+
+class Cylinder:
+
+    def __init__(self, height=1, radius=1):
+        pass
+
+    def volume(self):
+        pass
+
+    def surface_area(self):
+        pass
+
+
+cylinder = Cylinder(2, 3)
+
+print(cylinder.volume())
+print(cylinder.surface_area())
+
