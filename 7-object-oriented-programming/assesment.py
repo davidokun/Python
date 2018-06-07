@@ -29,18 +29,21 @@ print("# CLASS CYLINDER\n")
 
 class Cylinder:
 
+    pi = 3.14
+
     def __init__(self, height=1, radius=1):
-        pass
+        self.height = height
+        self.radius = radius
 
     def volume(self):
-        pass
+        return Cylinder.pi * self.radius**2 * self.height
 
     def surface_area(self):
-        pass
+        return (2 * Cylinder.pi * self.radius * self.height) + (2 * Cylinder.pi * self.radius**2)
 
 
 cylinder = Cylinder(2, 3)
 
-print(cylinder.volume())
-print(cylinder.surface_area())
+print("Volume is {v:1.3f}".format(v=cylinder.volume()))
+print("Total Surface Area is {s:.3f}".format(s=cylinder.surface_area()))
 
