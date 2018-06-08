@@ -32,6 +32,27 @@ except OSError:
 finally:
     print("I always run")
 
+print("\n######\n")
+
+# Mix of use Try-Except-Else-Finally
+
+
+def ask_for_int():
+    while True:
+        try:
+            result = int(input("Please provide number: "))
+        except ValueError:
+            print("Whoops! That is not a number")
+            continue
+        else:
+            print(f"Yes, thank you for number {result}")
+            break
+        finally:
+            print("End of tyr/except/finally")
+            print("I always run at the end")
+
+
+ask_for_int()
 
 
 
