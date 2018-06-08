@@ -44,3 +44,23 @@ divide(10, 5)
 divide(10, "5")
 divide(10, 0)
 
+print("\n# Problem 3\n")
+# Write a function that asks for an integer and prints the square of it.
+# Use a while loop with a try, except, else block to account for incorrect inputs.
+
+
+def ask():
+    while True:
+        try:
+            number = int(input("Input an integer: "))
+            square = number**2
+        except ValueError:
+            print("Value entered is not an integer")
+            continue
+        else:
+            print(f"Thank you, your number squared is:  {square}")
+            break
+
+
+ask()
+
