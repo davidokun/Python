@@ -72,3 +72,18 @@ class Chips:
 
     def lose_bet(self):
         self.total -= self.bet
+
+
+# Game Logic functions
+
+def take_bet(chips, player_bet):
+    while True:
+        try:
+            chips.bet = int(player_bet)  # int(input("How many chips would you like to bet?: "))
+        except ValueError:
+            return "Sorry, please provide a valid integer"
+        else:
+            if chips.bet > chips.total:
+                return "Sorry, you do not have enough chips!. You have {}".format(chips.total)
+            else:
+                break
