@@ -53,3 +53,24 @@ class TestGame(unittest.TestCase):
         game.hit_or_stand(test_deck, test_hand, test_selection)
 
         self.assertEqual(game.playing, False)
+
+    def test_player_busts(self):
+        test_chips = game.Chips()
+        test_chips.bet = 30
+        game.player_busts("", "", test_chips)
+
+        self.assertEqual(test_chips.total, 70)
+
+    def test_player_busts(self):
+        test_chips = game.Chips()
+        test_chips.bet = 80
+        game.player_wins("", "", test_chips)
+
+        self.assertEqual(test_chips.total, 180)
+
+    def test_dealer_busts(self):
+        test_chips = game.Chips()
+        test_chips.bet = 10
+        game.player_wins("", "", test_chips)
+
+        self.assertEqual(test_chips.total, 110)
