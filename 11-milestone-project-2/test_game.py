@@ -35,3 +35,21 @@ class TestGame(unittest.TestCase):
         game.hit(test_deck, test_hand)
 
         self.assertEqual(len(test_hand.cards), 1)
+
+    def test_hit_or_stand_player_hit(self):
+        test_deck = game.Deck()
+        test_hand = game.Hand()
+        test_selection = 'h'
+
+        game.hit_or_stand(test_deck, test_hand, test_selection)
+
+        self.assertEqual(len(test_hand.cards), 1)
+
+    def test_hit_or_stand_player_stands(self):
+        test_deck = game.Deck()
+        test_hand = game.Hand()
+        test_selection = 's'
+
+        game.hit_or_stand(test_deck, test_hand, test_selection)
+
+        self.assertEqual(game.playing, False)
