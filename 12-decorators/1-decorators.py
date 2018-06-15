@@ -34,3 +34,34 @@ def other(other_func):
 
 
 other(hello)
+
+# Using decorators
+print("\n##### Using decorators \n")
+
+
+def new_decorator(original_func):
+
+    def wrap_func():
+        print('Some extra code, before original func')
+
+        original_func()
+
+        print('Some extra code, after original func')
+
+    return wrap_func
+
+
+def func_needs_decorator():
+    print('I want to be decorated')
+
+
+decorated_func = new_decorator(func_needs_decorator)
+decorated_func()
+
+
+@new_decorator
+def func_needs_decorator():
+    print('I want to be decorated')
+
+
+func_needs_decorator()
