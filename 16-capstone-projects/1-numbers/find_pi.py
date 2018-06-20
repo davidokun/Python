@@ -12,21 +12,22 @@ def find_pi(decimals):
     :return: the value of PI with 'n' decimal places
     """
     precision = f'.{decimals}f'
-    return "Pi constant is {r:{p}}".format(r=math.pi, p=precision)
+    return float("{r:{p}}".format(r=math.pi, p=precision))
 
 
-while True:
-    try:
-        USER_INPUT = input('Please enter decimal places (\'q\' to Quit): ')
-        if USER_INPUT == 'q':
-            print('Goodbye!')
-            break
-        else:
-            NUMBER = int(USER_INPUT)
-            if NUMBER < 1 or NUMBER > 50:
-                print("Please enter a number between 1 to 50")
+if __name__ == '__main__':
+    while True:
+        try:
+            USER_INPUT = input('Please enter decimal places (\'q\' to Quit): ')
+            if USER_INPUT == 'q':
+                print('Goodbye!')
+                break
             else:
-                print(find_pi(NUMBER))
+                NUMBER = int(USER_INPUT)
+                if NUMBER < 1 or NUMBER > 50:
+                    print("Please enter a number between 1 to 50")
+                else:
+                    print(find_pi(NUMBER))
 
-    except ValueError:
-        print('Please enter a positive integer')
+        except ValueError:
+            print('Please enter a positive integer')
