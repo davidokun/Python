@@ -1,9 +1,11 @@
 """
 Basic usage of RxPY
 """
-from rx import of, operators as op, create
-import time
 import random
+import time
+
+from colorama import Fore, init
+from rx import of, operators as op, create
 
 
 # Example 1
@@ -24,10 +26,12 @@ def push_five_strings(observer, scheduler):
 source1 = create(push_five_strings)
 
 source1.subscribe(
-    on_next=lambda i: print("Received {0}".format(i)),
-    on_error=lambda e: print("Error Occurred: {0}".format(e)),
-    on_completed=lambda: print("Done!"),
+    on_next=lambda i: print(Fore.YELLOW + "Received {0}".format(i)),
+    on_error=lambda e: print(Fore.RED + "Error Occurred: {0}".format(e)),
+    on_completed=lambda: print(Fore.GREEN + "Done!"),
 )
+
+init(autoreset=True)
 
 # Example 2
 source2 = of("Alpha", "Beta", "Gamma", "Delta", "Epsilon")

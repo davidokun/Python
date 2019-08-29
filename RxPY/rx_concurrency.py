@@ -7,8 +7,9 @@ import time
 from threading import current_thread
 
 import rx
-from rx.scheduler import ThreadPoolScheduler
+from colorama import Fore
 from rx import operators as ops
+from rx.scheduler import ThreadPoolScheduler
 
 
 def intense_calculation(value):
@@ -19,25 +20,25 @@ def intense_calculation(value):
 
 # Calculate number of CPU's, then create a ThreadPoolScheduler with that number of threads
 optimal_thread_count = multiprocessing.cpu_count()
-print(f'number of CPUs {optimal_thread_count}')
+print(Fore.YELLOW + f'number of CPUs {optimal_thread_count}')
 pool_scheduler = ThreadPoolScheduler(optimal_thread_count)
 
 # Create Process 1
 rx.of("Alpha", "Beta", "Gamma", "Delta", "Epsilon").pipe(
     ops.map(lambda s: intense_calculation(s)), ops.subscribe_on(pool_scheduler)
 ).subscribe(
-    on_next=lambda s: print("PROCESS 1: {0} {1}".format(current_thread().name, s)),
+    on_next=lambda s: print(Fore.BLUE + "PROCESS 1: {0} {1}".format(current_thread().name, s)),
     on_error=lambda e: print(e),
-    on_completed=lambda: print("PROCESS 1 done!"),
+    on_completed=lambda: print(Fore.GREEN + "PROCESS 1 done!"),
 )
 
 # Create Process 2
 rx.range(1, 10).pipe(
     ops.map(lambda s: intense_calculation(s)), ops.subscribe_on(pool_scheduler)
 ).subscribe(
-    on_next=lambda i: print("PROCESS 2: {0} {1}".format(current_thread().name, i)),
+    on_next=lambda i: print(Fore.YELLOW + "PROCESS 2: {0} {1}".format(current_thread().name, i)),
     on_error=lambda e: print(e),
-    on_completed=lambda: print("PROCESS 2 done!"),
+    on_completed=lambda: print(Fore.GREEN + "PROCESS 2 done!"),
 )
 
 # Create Process 3, which is infinite
@@ -46,7 +47,7 @@ rx.interval(1).pipe(
     ops.observe_on(pool_scheduler),
     ops.map(lambda s: intense_calculation(s)),
 ).subscribe(
-    on_next=lambda i: print("PROCESS 3: {0} {1}".format(current_thread().name, i)),
+    on_next=lambda i: print(Fore.RED + "PROCESS 3: {0} {1}".format(current_thread().name, i)),
     on_error=lambda e: print(e),
 )
 
